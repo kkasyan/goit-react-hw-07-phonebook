@@ -5,8 +5,8 @@ import { memo } from 'react';
 import { FormButton } from 'components/shared/FormButton/FormButton';
 
 const ContactForm = ({ onSubmit }) => {
-  const [state, setState] = useState({ name: '', number: '' });
-  const { name, number } = state;
+  const [state, setState] = useState({ name: '', phone: '' });
+  const { name, phone } = state;
 
   const handleSubmit = e => {
     e.preventDefault();
@@ -26,7 +26,7 @@ const ContactForm = ({ onSubmit }) => {
   const reset = () => {
     setState({
       name: '',
-      number: '',
+      phone: '',
     });
   };
 
@@ -46,8 +46,8 @@ const ContactForm = ({ onSubmit }) => {
       <label htmlFor="number">
         Number
         <input
-          name="number"
-          value={number}
+          name="phone"
+          value={phone}
           onChange={handleChange}
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"

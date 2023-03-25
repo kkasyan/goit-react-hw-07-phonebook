@@ -24,4 +24,4 @@ ContactList.propTypes = {
   ),
 };
 
-ContactList.defaultProps = { items: [] };
+// ContactList.defaultProps = { items: [] };

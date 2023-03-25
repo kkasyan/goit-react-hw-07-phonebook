@@ -1,10 +1,16 @@
 import css from './app.module.css';
-
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { addContact, removeContact } from 'redux/contacts/slice';
+// import { fetchContacts, addContact, removeContact } from 'redux/contacts/slice';
+// import { addContact, removeContact } from 'redux/contacts/operations';
 import { setFilter } from 'redux/filter/slice';
 import { getFilteredContacts } from 'redux/contacts/selectors';
 import { getFilter } from 'redux/filter/selectors';
+import {
+  fetchContacts,
+  addContact,
+  removeContact,
+} from 'redux/contacts/operations';
 
 import ContactForm from './ContactForm/ContactForm';
 import { ContactList } from './ContactList/ContactList';
@@ -16,13 +22,16 @@ export const App = () => {
 
   const dispatch = useDispatch();
 
+  useEffect(() => {
+    dispatch(fetchContacts());
+  }, [dispatch]);
+
   const onAddContact = payload => {
-    const action = addContact(payload);
-    dispatch(action);
+    dispatch(addContact(payload));
   };
 
-  const onRemoveContact = payload => {
-    dispatch(removeContact(payload));
+  const onRemoveContact = id => {
+    dispatch(removeContact(id));
   };
 
   const onSetFilter = ({ target }) => {
