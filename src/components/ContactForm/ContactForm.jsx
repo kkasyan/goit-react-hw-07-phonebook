@@ -57,7 +57,7 @@ const ContactForm = () => {
           name="phone"
           value={phone}
           onChange={handleChange}
-          pattern="[0-9.\-]*}"
+          pattern="[0-9.\-]*"
           title="Phone number must be digits and can contain dashes, parentheses"
           required
         />
